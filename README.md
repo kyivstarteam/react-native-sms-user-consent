@@ -17,7 +17,7 @@ $ yarn add @kyivstarteam/react-native-sms-user-consent
 - **React Native 0.60+**
 
 
-[CLI autolink feature](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md) links the module while building the app. 
+[CLI autolink feature](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md) links the module while building the app.
 
 
 - **React Native <= 0.59**
