@@ -9,7 +9,7 @@ The SMS User Consent API complements the SMS Retriever API by allowing an app to
 ### Install
 
 ```
-$ yarn add react-native-sms-user-consent
+$ yarn add @kyivstarteam/react-native-sms-user-consent
 ```
 
 ### Link
@@ -24,14 +24,7 @@ $ yarn add react-native-sms-user-consent
 
 
 ```bash
-$ react-native link react-native-sms-user-consent
-```
-
-
-*Note* For `iOS` using `cocoapods`, run:
-
-```bash
-$ cd ios/ && pod install
+$ react-native link @kyivstarteam/react-native-sms-user-consent
 ```
 
 ## Usage
@@ -48,7 +41,7 @@ $ cd ios/ && pod install
 ### Import
 
 ```js
-import SMSUserConsent from 'react-native-sms-user-consent';
+import SMSUserConsent from '@kyivstarteam/react-native-sms-user-consent';
 ```
 
 ### Start listen SMS and get message
