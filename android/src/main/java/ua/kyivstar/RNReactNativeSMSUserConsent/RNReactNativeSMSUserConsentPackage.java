@@ -1,5 +1,5 @@
 
-package com.genyaonipko.RNReactNativeSMSUserConsent;
+package ua.kyivstar.RNReactNativeSMSUserConsent;
 
 import java.util.Arrays;
 import java.util.Collections;

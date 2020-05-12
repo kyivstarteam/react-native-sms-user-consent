@@ -1,25 +1,18 @@
-package com.genyaonipko.RNReactNativeSMSUserConsent;
+package ua.kyivstar.RNReactNativeSMSUserConsent;
 
 import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.Bundle;
 
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.BaseActivityEventListener;
-import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.WritableMap;
 import com.google.android.gms.auth.api.phone.SmsRetriever;
-import com.google.android.gms.common.api.CommonStatusCodes;
-import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,7 +20,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import static android.app.Activity.RESULT_OK;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 
 public class RNReactNativeSMSUserConsentModule extends ReactContextBaseJavaModule {
