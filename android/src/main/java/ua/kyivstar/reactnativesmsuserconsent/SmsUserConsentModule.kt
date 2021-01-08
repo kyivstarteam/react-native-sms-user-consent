@@ -77,7 +77,7 @@ class SmsUserConsentModule(reactContext: ReactApplicationContext) : ReactContext
           unregisterReceiver()
           if (resultCode == RESULT_OK) {
             // Get SMS message content
-            val message = intent.getStringExtra(SmsRetriever.EXTRA_SMS_MESSAGE)
+            val message = intent?.getStringExtra(SmsRetriever.EXTRA_SMS_MESSAGE)
             val map = Arguments.createMap()
             map.putString(RECEIVED_OTP_PROPERTY, message)
             promise!!.resolve(map)
