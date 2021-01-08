@@ -71,7 +71,7 @@ class SmsUserConsentModule(reactContext: ReactApplicationContext) : ReactContext
   }
 
   private val mActivityEventListener: ActivityEventListener = object : BaseActivityEventListener() {
-    override fun onActivityResult(activity: Activity, requestCode: Int, resultCode: Int, intent: Intent) {
+    override fun onActivityResult(activity: Activity, requestCode: Int, resultCode: Int, intent: Intent?) {
       when (requestCode) {
         SMS_CONSENT_REQUEST -> {
           unregisterReceiver()
