@@ -36,30 +36,25 @@ class SmsUserConsentModule(reactContext: ReactApplicationContext) : ReactContext
     this.promise = promise
     if (reactContext!!.currentActivity != null) {
       val task: Task<Void> = SmsRetriever.getClient(reactContext.currentActivity!!).startSmsUserConsent(null)
-      task.addOnSuccessListener(object : OnSuccessListener<Void?> {
-        override fun onSuccess(aVoid: Void?) {
-          // successfully started an SMS Retriever for one SMS message
-          registerReceiver()
-        }
-      })
-      task.addOnFailureListener(object : OnFailureListener {
-        override fun onFailure(e: Exception) {
-          promise.reject(E_OTP_ERROR, e)
-        }
-      })
+
+      task.addOnSuccessListener { // successfully started an SMS Retriever for one SMS message
+        registerReceiver()
+      }
+      task.addOnFailureListener { e -> promise.reject(E_OTP_ERROR, e) }
     }
   }
 
   @ReactMethod
   fun removeOTPListener() {
     unregisterReceiver()
+    promise = null
   }
 
   private fun registerReceiver() {
     if (reactContext!!.currentActivity != null) {
-      receiver = SmsRetrieveBroadcastReceiver(reactContext!!.currentActivity)
+      receiver = SmsRetrieveBroadcastReceiver(reactContext.currentActivity)
       val intentFilter = IntentFilter(SmsRetriever.SMS_RETRIEVED_ACTION)
-      reactContext!!.currentActivity!!.registerReceiver(receiver, intentFilter)
+      reactContext.currentActivity!!.registerReceiver(receiver, intentFilter, SmsRetriever.SEND_PERMISSION, null)
     }
   }
 
