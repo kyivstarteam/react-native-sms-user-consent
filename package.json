@@ -1,6 +1,6 @@
 {
   "name": "@kyivstarteam/react-native-sms-user-consent",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "This page describes how to use the SMS User Consent API to request user consent to read a single SMS verification message. If the user consents, the API returns the text of the message, from which you can get the verification code and complete the verification process.",
   "react-native": "src/index",
   "source": "src/index",

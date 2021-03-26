@@ -34,7 +34,7 @@ class SmsUserConsentModule(reactContext: ReactApplicationContext) : ReactContext
       promise.reject(E_OTP_ERROR, Error("Reject previous request"))
     }
     this.promise = promise
-    if (reactContext!!.currentActivity != null) {
+    if (reactContext?.currentActivity != null) {
       val task: Task<Void> = SmsRetriever.getClient(reactContext.currentActivity!!).startSmsUserConsent(null)
       task.addOnSuccessListener(object : OnSuccessListener<Void?> {
         override fun onSuccess(aVoid: Void?) {
@@ -56,16 +56,16 @@ class SmsUserConsentModule(reactContext: ReactApplicationContext) : ReactContext
   }
 
   private fun registerReceiver() {
-    if (reactContext!!.currentActivity != null) {
-      receiver = SmsRetrieveBroadcastReceiver(reactContext!!.currentActivity)
+    if (reactContext?.currentActivity != null) {
+      receiver = SmsRetrieveBroadcastReceiver(reactContext.currentActivity)
       val intentFilter = IntentFilter(SmsRetriever.SMS_RETRIEVED_ACTION)
-      reactContext!!.currentActivity!!.registerReceiver(receiver, intentFilter)
+      reactContext.currentActivity?.registerReceiver(receiver, intentFilter)
     }
   }
 
   private fun unregisterReceiver() {
     if (receiver != null) {
-      reactContext!!.currentActivity!!.unregisterReceiver(receiver)
+      reactContext?.currentActivity?.unregisterReceiver(receiver)
       receiver = null
     }
   }
@@ -80,9 +80,9 @@ class SmsUserConsentModule(reactContext: ReactApplicationContext) : ReactContext
             val message = intent?.getStringExtra(SmsRetriever.EXTRA_SMS_MESSAGE)
             val map = Arguments.createMap()
             map.putString(RECEIVED_OTP_PROPERTY, message)
-            promise!!.resolve(map)
+            promise?.resolve(map)
           } else {
-            promise!!.reject(E_OTP_ERROR, Error("Result code: $resultCode"))
+            promise?.reject(E_OTP_ERROR, Error("Result code: $resultCode"))
           }
           promise = null
         }
