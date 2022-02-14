@@ -22,7 +22,7 @@ class SmsRetrieveBroadcastReceiver(currentActivity: Activity?): BroadcastReceive
   override fun onReceive(context: Context?, intent: Intent) {
     if (SmsRetriever.SMS_RETRIEVED_ACTION.equals(intent.action)) {
       val extras = intent.extras
-      val smsRetrieverStatus: Status = extras[SmsRetriever.EXTRA_STATUS] as Status
+      val smsRetrieverStatus: Status = extras?.get(SmsRetriever.EXTRA_STATUS) as Status
       val statusCode: Int = smsRetrieverStatus.getStatusCode()
       when (statusCode) {
         CommonStatusCodes.SUCCESS ->                     // Get consent intent
